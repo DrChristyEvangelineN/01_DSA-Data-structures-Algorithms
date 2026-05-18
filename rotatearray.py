@@ -1,3 +1,36 @@
+"""Array rotation means:
+Moving elements in a circular way without losing any element. Think of the array as a ring (circle), not a line.
+1. Example: [1, 2, 3, 4, 5]
+
+2.Rotate by 1 step:
+[1, 2, 3, 4, 5]
+→ [5, 1, 2, 3, 4]
+What happened?
+last element moves to front
+everything else shifts right
+
+3.Rotate by 1 step:
+[1, 2, 3, 4, 5]
+→ [4, 5, 1, 2, 3]
+
+4. 
+k = 1 → rotate once
+k = 2 → rotate twice
+k = 3 → rotate three times
+So k controls the “distance of movement”.
+
+5.k = k % len(nums) - is because WHAT IF k IS BIGGER THAN len(nums). So it is a mod formula here. 
+if k = 1, then k remains 1. k remains as long as it is smaller than len(nums).
+if k=7 and len(nums)=5, then mod answer is 2. So rotation remains 2. 
+
+6. Why slicing works (nums[-k:] + nums[:-k])?
+-k: - means, if k is 2, -2 means last but one in the array, -3 means last but two in the array. START from -2 and goes till END (that is :)
+:-k - means start from beginning of array till before -2 (if k is 2)
+
+7. nums[:] - means take already exisitng 'nums', : means take all that is in the nums list and replace with what comes after the = symbol. 
+so the entire existing 'nums' is replaced. MEMORY SAVED.
+"""
+
 class Rotation():
     def rotate(self, nums: list[int], k: int)-> None:
         k=k%len(nums)
